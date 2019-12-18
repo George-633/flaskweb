@@ -11,8 +11,8 @@ from wtforms.validators import DataRequired, Length
 
 
 class LoginForm(FlaskForm):
-    username = StringField('name', validators=[DataRequired(message='enter your name')])
-    password = PasswordField('password', validators=[DataRequired(message='enter your password')])
+    username = StringField('username', validators=[DataRequired(message='please enter your username')])
+    password = PasswordField('password', validators=[DataRequired(message='please enter you pwd')])
     remember_me = BooleanField('remember me')
     submit = SubmitField('login')
 
