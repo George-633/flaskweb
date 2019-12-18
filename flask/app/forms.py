@@ -33,3 +33,9 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('duplicated! re-enter your email')
+
+
+class EditProfileForm(FlaskForm):
+    username = StringField('username', validators=[DataRequired(message='please enter your username')])
+    about_me = TextAreaField('aboutme', validators=[Length(min=0, max=140)])
+    submit = SubmitField('submit')

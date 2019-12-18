@@ -9,10 +9,15 @@
     {% endif %}
     </head>
     <body>
-        <div>博客 :
-           <a href="{{ url_for('index') }}">home</a>
-           <a href="{{ url_for('login') }}">login</a>
-           <a href="{{ url_for('logout') }}">logout</a>
+        <div>
+            博客 :
+            <a href="{{ url_for('index') }}">home</a>
+            {% if current_user.is_anonymous %}
+                <a href="{{ url_for('login') }}">login</a>
+            {% else %}
+                <a href="{{ url_for('user', username=current_user.username) }}">User Center</a>
+                <a href="{{ url_for('logout') }}">logout</a>
+            {% endif %}
         </div>
         {% with messages = get_flashed_messages() %}
             <ur>
