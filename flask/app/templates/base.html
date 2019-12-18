@@ -10,8 +10,9 @@
     </head>
     <body>
         <div>博客 :
-           <a href="{{ url_for('index') }}">首页</a>
+           <a href="{{ url_for('index') }}">home</a>
            <a href="{{ url_for('login') }}">login</a>
+           <a href="{{ url_for('logout') }}">logout</a>
         </div>
         {% with messages = get_flashed_messages() %}
             <ur>
